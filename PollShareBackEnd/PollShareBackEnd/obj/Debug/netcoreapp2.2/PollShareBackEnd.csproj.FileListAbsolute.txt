@@ -1,0 +1,14 @@
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\bin\Debug\netcoreapp2.2\PollShareBackEnd.deps.json
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\bin\Debug\netcoreapp2.2\PollShareBackEnd.runtimeconfig.json
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\bin\Debug\netcoreapp2.2\PollShareBackEnd.runtimeconfig.dev.json
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\bin\Debug\netcoreapp2.2\PollShareBackEnd.dll
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\bin\Debug\netcoreapp2.2\PollShareBackEnd.pdb
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.csprojAssemblyReference.cache
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.csproj.CoreCompileInputs.cache
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.RazorAssemblyInfo.cache
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.RazorAssemblyInfo.cs
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.AssemblyInfoInputs.cache
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.AssemblyInfo.cs
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.RazorTargetAssemblyInfo.cache
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.dll
+D:\IT Factory\IT Factory - 3de jaar\Angular\Project Polls\PollShare-back-end\PollShareBackEnd\PollShareBackEnd\obj\Debug\netcoreapp2.2\PollShareBackEnd.pdb
