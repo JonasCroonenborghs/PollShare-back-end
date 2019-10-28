@@ -11,6 +11,15 @@ namespace PollShareBackEnd.Models
         {
             context.Database.EnsureCreated();
 
+            if (context.Gebruikers.Any() || 
+                context.PollGebruikers.Any() ||
+                context.Polls.Any() ||
+                context.Stemmen.Any() || 
+                context.Antwoorden.Any())
+            {
+                return;
+            }
+
             context.Gebruikers.AddRange(
                 new Gebruiker {
                     email = "jonascroonenborghs@hotmail.com",
@@ -23,6 +32,29 @@ namespace PollShareBackEnd.Models
                 new PollGebruiker
                 {
                     gebruikerID = 0,
+                    pollID = 0
+                });
+            context.SaveChanges();
+
+            context.Polls.AddRange(
+                new Poll
+                {
+                    naam = "Cinema"
+                });
+            context.SaveChanges();
+
+            context.Stemmen.AddRange(
+                new Stem
+                {
+                    antwoordID = 0,
+                    gebruikerID = 0
+                });
+            context.SaveChanges();
+
+            context.Antwoorden.AddRange(
+                new Antwoord
+                {
+                    antwoord = "Test antwoord",
                     pollID = 0
                 });
             context.SaveChanges();
