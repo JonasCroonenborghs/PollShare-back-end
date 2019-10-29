@@ -23,7 +23,7 @@ namespace PollShareBackEnd.Models
             context.Gebruikers.AddRange(
                 new Gebruiker {
                     email = "jonascroonenborghs@hotmail.com",
-                    wachtwoord = "ww",
+                    wachtwoord = "JonasC",
                     gebruikersnaam = "JonasC"
                 });
             context.SaveChanges();

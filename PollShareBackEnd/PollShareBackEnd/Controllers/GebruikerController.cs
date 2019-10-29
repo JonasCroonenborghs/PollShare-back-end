@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PollShareBackEnd.Models;
+using PollShareBackEnd.Services;
 
 namespace PollShareBackEnd.Controllers
 {
@@ -13,14 +15,37 @@ namespace PollShareBackEnd.Controllers
     [ApiController]
     public class GebruikerController : ControllerBase
     {
+        //Voor authenticatie
+        private IGebruikerService _gebruikerService;
+
+        //public GebruikerController(IGebruikerService gebruikerService)
+        //{
+        //    _gebruikerService = gebruikerService;
+        //}
+
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate([FromBody]Gebruiker gebruikerParam)
+        {
+            var gebruiker = _gebruikerService.Authenticate(gebruikerParam.gebruikersnaam, gebruikerParam.wachtwoord);
+
+            if (gebruiker == null)
+            {
+                return BadRequest(new { message = "Gebruikernaam of wachtwoord is niet juist" });
+            }
+
+            return Ok(gebruiker);
+        }
+
         private readonly PollShareContext _context;
 
-        public GebruikerController(PollShareContext context)
+        public GebruikerController(PollShareContext context, IGebruikerService gebruikerService)
         {
             _context = context;
+            _gebruikerService = gebruikerService;
         }
 
         // GET: api/Gebruiker
+        [Authorize]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Gebruiker>>> GetGebruikers()
         {
