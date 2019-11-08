@@ -15,7 +15,8 @@ namespace PollShareBackEnd.Models
                 context.PollGebruikers.Any() ||
                 context.Polls.Any() ||
                 context.Stemmen.Any() || 
-                context.Antwoorden.Any())
+                context.Antwoorden.Any() ||
+                context.Meldingen.Any())
             {
                 return;
             }
@@ -24,7 +25,8 @@ namespace PollShareBackEnd.Models
                 new Gebruiker {
                     email = "jonascroonenborghs@hotmail.com",
                     wachtwoord = "JonasC",
-                    gebruikersnaam = "JonasC"
+                    gebruikersnaam = "JonasC",
+                    geactiveerd = true
                 });
             context.SaveChanges();
 
@@ -55,7 +57,16 @@ namespace PollShareBackEnd.Models
                 new Antwoord
                 {
                     antwoord = "Test antwoord",
-                    pollID = 0
+                    pollID = 1
+                });
+            context.SaveChanges();
+
+            context.Meldingen.AddRange(
+                new Melding
+                {
+                    huidigeGebruikerID = 1,
+                    vriendID = 2,
+                    aanvaard = false
                 });
             context.SaveChanges();
         }

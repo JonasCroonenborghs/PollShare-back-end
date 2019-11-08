@@ -16,6 +16,7 @@ namespace PollShareBackEnd.Models
         public DbSet<Poll> Polls { get; set; }
         public DbSet<Stem> Stemmen { get; set; }
         public DbSet<Antwoord> Antwoorden { get; set; }
+        public DbSet<Melding> Meldingen { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +25,7 @@ namespace PollShareBackEnd.Models
             modelBuilder.Entity<Poll>().ToTable("Poll");
             modelBuilder.Entity<Stem>().ToTable("Stem");
             modelBuilder.Entity<Antwoord>().ToTable("Antwoord");
+            modelBuilder.Entity<Melding>().ToTable("Melding");
         }
     }
 }

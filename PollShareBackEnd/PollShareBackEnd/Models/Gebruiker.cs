@@ -14,5 +14,8 @@ namespace PollShareBackEnd.Models
         public string gebruikersnaam { get; set; }
         [NotMapped]
         public string token { get; set; }
+        public bool geactiveerd { get; set; }
+        public List<Gebruiker> vrienden { get; set; }
+        public List<Melding> meldingen { get; set; }
     }
 }
