@@ -41,6 +41,43 @@ namespace PollShareBackEnd.Controllers
             return poll;
         }
 
+        // GET: api/Poll/poll/naam
+        [HttpGet("naam")]
+        public async Task<ActionResult<Poll>> GetPollByNaam(string naam)
+        {
+            var polls = await _context.Polls.ToListAsync();
+            var poll = new Poll();
+
+            foreach (var p in polls)
+            {
+                if (p.naam == naam)
+                {
+                    poll = p;
+                }
+            }
+
+            return poll;
+        }
+
+        // GET: api/Vriendschap/gebruiker/id
+        [HttpGet("pollGebruikerID")]
+        public async Task<ActionResult<IEnumerable<Poll>>> GetPollsByGebruikerID(long gebruikerID)
+        {
+            var pollGebruikers = await _context.PollGebruikers.ToListAsync();
+            var pollLijst = new List<Poll>();
+
+            foreach (var pollGebruiker in pollGebruikers)
+            {
+                if (pollGebruiker.gebruikerID == gebruikerID)
+                {
+                    var poll = await _context.Polls.FindAsync(pollGebruiker.pollID);
+                    pollLijst.Add(poll);
+                }
+            }
+
+            return pollLijst;
+        }
+
         // PUT: api/Poll/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutPoll(long id, Poll poll)

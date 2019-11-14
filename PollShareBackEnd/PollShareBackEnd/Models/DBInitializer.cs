@@ -16,7 +16,8 @@ namespace PollShareBackEnd.Models
                 context.Polls.Any() ||
                 context.Stemmen.Any() || 
                 context.Antwoorden.Any() ||
-                context.Meldingen.Any())
+                context.Meldingen.Any() ||
+                context.Vriendschappen.Any()) 
             {
                 return;
             }
@@ -66,7 +67,7 @@ namespace PollShareBackEnd.Models
                 {
                     huidigeGebruikerID = 1,
                     vriendID = 2,
-                    aanvaard = false
+                    type = "Vriendsapsverzoek"
                 });
             context.SaveChanges();
         }

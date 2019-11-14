@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 
 namespace PollShareBackEnd.Models
 {
-    public class Melding
+    public class Vriendschap
     {
-        public long meldingID { get; set; }
-        public long huidigeGebruikerID { get; set; }
+        public long vriendschapID { get; set; }
+        public long gebruikerID { get; set; }
         public long vriendID { get; set; }
-        public string type { get; set; }
     }
 }

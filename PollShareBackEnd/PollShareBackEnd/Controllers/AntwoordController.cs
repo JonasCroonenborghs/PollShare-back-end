@@ -41,6 +41,24 @@ namespace PollShareBackEnd.Controllers
             return antwoord;
         }
 
+        // GET: api/Antwoord/poll/id
+        [HttpGet("poll/{id}")]
+        public async Task<ActionResult<IEnumerable<Antwoord>>> GetAntwoordenByPollID(long pollID)
+        {
+            var antwoordenLijst = new List<Antwoord>();
+            var antwoorden = await _context.Antwoorden.ToListAsync();
+
+            foreach (var antwoord in antwoorden)
+            {
+                if (antwoord.pollID == pollID)
+                {
+                    antwoordenLijst.Add(antwoord);
+                }
+            }
+
+            return antwoordenLijst;
+        }
+
         // PUT: api/Antwoord/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAntwoord(long id, Antwoord antwoord)

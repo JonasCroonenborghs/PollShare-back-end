@@ -41,6 +41,51 @@ namespace PollShareBackEnd.Controllers
             return melding;
         }
 
+        //// GET: api/Melding/gebruiker/id
+        //[HttpGet("gebruiker/meldingen/{id}")]
+        //public async Task<ActionResult<IEnumerable<Melding>>> GetMeldingenByVriendID(long vriendID)
+        //{
+        //    var meldingen = await _context.Meldingen.ToListAsync();
+        //    var meldingenLijst = new List<Melding>();
+
+        //    foreach (var melding in meldingen)
+        //    {
+        //        if (melding.vriendID == vriendID)
+        //        {
+        //            meldingenLijst.Add(melding);
+        //        }
+        //    }
+
+        //    return meldingenLijst;
+        //}
+
+        // GET: api/Melding/gebruiker/id
+        [HttpGet("gebruiker/{id}")]
+        public async Task<ActionResult<IEnumerable<Gebruiker>>> GetMeldingGebruikersByGebruikerID(long gebruikerID)
+        {
+            var meldingen = await _context.Meldingen.ToListAsync();
+            var vriendenLijst = new List<Gebruiker>();
+
+            foreach (var melding in meldingen)
+            {
+                var vriend = await _context.Gebruikers.FindAsync(melding.huidigeGebruikerID);
+                vriendenLijst.Add(vriend);
+
+                //if (melding.huidigeGebruikerID == gebruikerID)
+                //{
+                //    var vriend = await _context.Gebruikers.FindAsync(melding.vriendID);
+                //    vriendenLijst.Add(vriend);
+                //}
+                //else if (melding.vriendID == gebruikerID)
+                //{
+                //    var vriend = await _context.Gebruikers.FindAsync(melding.huidigeGebruikerID);
+                //    vriendenLijst.Add(vriend);
+                //}
+            }
+
+            return vriendenLijst;
+        }
+
         // PUT: api/Melding/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMelding(long id, Melding melding)
