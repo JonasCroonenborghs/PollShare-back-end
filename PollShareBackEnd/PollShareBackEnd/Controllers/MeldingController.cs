@@ -41,23 +41,19 @@ namespace PollShareBackEnd.Controllers
             return melding;
         }
 
-        //// GET: api/Melding/gebruiker/id
-        //[HttpGet("gebruiker/meldingen/{id}")]
-        //public async Task<ActionResult<IEnumerable<Melding>>> GetMeldingenByVriendID(long vriendID)
-        //{
-        //    var meldingen = await _context.Meldingen.ToListAsync();
-        //    var meldingenLijst = new List<Melding>();
+        // GET: api/Melding/huidigeGebruikerID
+        [HttpGet("huidigeGebruikerID")]
+        public async Task<ActionResult<Melding>> GetMeldingByHuidigeGebruikerID(long huidigeGebruikerId)
+        {
+            var melding = await _context.Meldingen.FindAsync(huidigeGebruikerId);
 
-        //    foreach (var melding in meldingen)
-        //    {
-        //        if (melding.vriendID == vriendID)
-        //        {
-        //            meldingenLijst.Add(melding);
-        //        }
-        //    }
+            if (melding == null)
+            {
+                return NotFound();
+            }
 
-        //    return meldingenLijst;
-        //}
+            return melding;
+        }
 
         // GET: api/Melding/gebruiker/id
         [HttpGet("gebruiker/{id}")]
@@ -68,19 +64,11 @@ namespace PollShareBackEnd.Controllers
 
             foreach (var melding in meldingen)
             {
-                var vriend = await _context.Gebruikers.FindAsync(melding.huidigeGebruikerID);
-                vriendenLijst.Add(vriend);
-
-                //if (melding.huidigeGebruikerID == gebruikerID)
-                //{
-                //    var vriend = await _context.Gebruikers.FindAsync(melding.vriendID);
-                //    vriendenLijst.Add(vriend);
-                //}
-                //else if (melding.vriendID == gebruikerID)
-                //{
-                //    var vriend = await _context.Gebruikers.FindAsync(melding.huidigeGebruikerID);
-                //    vriendenLijst.Add(vriend);
-                //}
+                if (melding.huidigeGebruikerID == gebruikerID)
+                {
+                    var vriend = await _context.Gebruikers.FindAsync(melding.vriendID);
+                    vriendenLijst.Add(vriend);
+                }
             }
 
             return vriendenLijst;

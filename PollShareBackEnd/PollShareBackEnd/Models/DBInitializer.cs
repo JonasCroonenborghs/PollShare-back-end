@@ -42,7 +42,8 @@ namespace PollShareBackEnd.Models
             context.Polls.AddRange(
                 new Poll
                 {
-                    naam = "Cinema"
+                    naam = "Cinema",
+                    makerID = 1
                 });
             context.SaveChanges();
 

@@ -10,5 +10,6 @@ namespace PollShareBackEnd.Models
         public long antwoordID { get; set; }
         public string antwoord { get; set; }
         public long pollID { get; set; }
+        public long aantalStemmen { get; set; }
     }
 }

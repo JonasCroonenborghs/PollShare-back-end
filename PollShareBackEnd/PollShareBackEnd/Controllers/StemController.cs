@@ -41,6 +41,24 @@ namespace PollShareBackEnd.Controllers
             return stem;
         }
 
+        // GET: api/stem/antwoord/id
+        [HttpGet("antwoordID")]
+        public async Task<ActionResult<IEnumerable<Stem>>> GetStemmenByAntwoordID(long antwoordID)
+        {
+            var stemmenLijst = new List<Stem>();
+            var stemmen = await _context.Stemmen.ToListAsync();
+
+            foreach (var stem in stemmen)
+            {
+                if (stem.antwoordID == antwoordID)
+                {
+                    stemmenLijst.Add(stem);
+                }
+            }
+
+            return stemmenLijst;
+        }
+
         // PUT: api/Stem/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStem(long id, Stem stem)

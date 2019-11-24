@@ -9,5 +9,6 @@ namespace PollShareBackEnd.Models
     {
         public long pollID { get; set; }
         public string naam { get; set; }
+        public long makerID { get; set; }
     }
 }

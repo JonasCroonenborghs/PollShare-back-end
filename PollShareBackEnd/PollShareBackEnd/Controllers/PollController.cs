@@ -59,7 +59,7 @@ namespace PollShareBackEnd.Controllers
             return poll;
         }
 
-        // GET: api/Vriendschap/gebruiker/id
+        // GET: api/Poll/pollGebruikerID
         [HttpGet("pollGebruikerID")]
         public async Task<ActionResult<IEnumerable<Poll>>> GetPollsByGebruikerID(long gebruikerID)
         {
@@ -71,6 +71,24 @@ namespace PollShareBackEnd.Controllers
                 if (pollGebruiker.gebruikerID == gebruikerID)
                 {
                     var poll = await _context.Polls.FindAsync(pollGebruiker.pollID);
+                    pollLijst.Add(poll);
+                }
+            }
+
+            return pollLijst;
+        }
+
+        // GET: api/Poll/makerID
+        [HttpGet("makerID")]
+        public async Task<ActionResult<IEnumerable<Poll>>> GetPollsByMakerID(long makerID)
+        {
+            var polls = await _context.Polls.ToListAsync();
+            var pollLijst = new List<Poll>();
+
+            foreach (var poll in polls)
+            {
+                if (poll.makerID == makerID)
+                {
                     pollLijst.Add(poll);
                 }
             }
