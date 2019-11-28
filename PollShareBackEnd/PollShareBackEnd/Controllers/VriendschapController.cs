@@ -66,6 +66,25 @@ namespace PollShareBackEnd.Controllers
             return vriendenLijst;
         }
 
+        // GET: api/Vriendschap/gebruikerId
+        [HttpGet("gebruikerId")]
+        public async Task<ActionResult<int>> GetAantalVriendenByGebruikerID(long gebruikerID)
+        {
+            var vriendschappen = await _context.Vriendschappen.ToListAsync();
+
+            int aantalVrienden = 0;
+
+            foreach (var vriendschap in vriendschappen)
+            {
+                if (vriendschap.gebruikerID == gebruikerID || vriendschap.vriendID == gebruikerID)
+                {
+                    aantalVrienden++;
+                }
+            }
+
+            return aantalVrienden;
+        }
+
         // PUT: api/Vriendschap/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutVriendschap(long id, Vriendschap vriendschap)

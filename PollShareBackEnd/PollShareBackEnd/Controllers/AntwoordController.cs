@@ -52,6 +52,18 @@ namespace PollShareBackEnd.Controllers
             {
                 if (antwoord.pollID == pollID)
                 {
+                    var stemmen = await _context.Stemmen.ToListAsync();
+                    int teller = 0;
+
+                    foreach (var stem in stemmen)
+                    {
+                        if (stem.antwoordID == antwoord.antwoordID)
+                        {
+                            teller++;
+                        }
+                    }
+
+                    antwoord.aantalStemmen = teller;
                     antwoordenLijst.Add(antwoord);
                 }
             }

@@ -17,11 +17,6 @@ namespace PollShareBackEnd.Controllers
         //Voor authenticatie
         private IGebruikerService _gebruikerService;
 
-        //public GebruikerController(IGebruikerService gebruikerService)
-        //{
-        //    _gebruikerService = gebruikerService;
-        //}
-
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody]Gebruiker gebruikerParam)
         {
@@ -59,6 +54,24 @@ namespace PollShareBackEnd.Controllers
             if (gebruiker == null)
             {
                 return NotFound();
+            }
+
+            return gebruiker;
+        }
+
+        // GET: api/Gebruiker/email
+        [HttpGet("email")]
+        public async Task<ActionResult<Gebruiker>> GetGebruikerByEmail(string email)
+        {
+            var gebruikers = await _context.Gebruikers.ToListAsync();
+            var gebruiker = new Gebruiker();
+
+            foreach (var g in gebruikers)
+            {
+                if (g.email == email)
+                {
+                    gebruiker = g;
+                }
             }
 
             return gebruiker;

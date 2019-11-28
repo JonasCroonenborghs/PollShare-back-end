@@ -64,14 +64,32 @@ namespace PollShareBackEnd.Controllers
 
             foreach (var melding in meldingen)
             {
-                if (melding.huidigeGebruikerID == gebruikerID)
+                if (melding.vriendID == gebruikerID)
                 {
-                    var vriend = await _context.Gebruikers.FindAsync(melding.vriendID);
+                    var vriend = await _context.Gebruikers.FindAsync(melding.huidigeGebruikerID);
                     vriendenLijst.Add(vriend);
                 }
             }
 
             return vriendenLijst;
+        }
+
+        // GET: api/Melding/meldingId
+        [HttpGet("gebruikerId")]
+        public async Task<ActionResult<int>> GetAantalMeldingenByGebruikerID(long gebruikerID)
+        {
+            var meldingen = await _context.Meldingen.ToListAsync();
+            int aantalMeldingen = 0;
+
+            foreach (var melding in meldingen)
+            {
+                if (melding.vriendID == gebruikerID)
+                {
+                    aantalMeldingen++;
+                }
+            }
+
+            return aantalMeldingen;
         }
 
         // PUT: api/Melding/5
